@@ -3,8 +3,7 @@ package be.ecam.carfactory;
 import be.ecam.carfactory.dagger.CarFactory;
 import be.ecam.carfactory.dagger.DaggerCarFactory;
 import be.ecam.carfactory.data.DataStore;
-import be.ecam.carfactory.data.DataStoreImpl;
-import be.ecam.carfactory.model.*;
+import be.ecam.carfactory.model.Car;
 
 public class Main {
     public static void main(String[] args) {

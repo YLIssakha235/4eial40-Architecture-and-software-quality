@@ -2,12 +2,14 @@ package be.ecam.basics.exercises;
 
 import java.util.List;
 
+import org.jetbrains.annotations.NotNull;
+
 public class Catalog {
     public static class Product {
         private final String name;
         private final List<String> tags;
 
-        public Product(String name, List<String> tags) {
+        public Product(String name, @NotNull List<String> tags) {
             this.name = name;
             this.tags = tags;
         }
