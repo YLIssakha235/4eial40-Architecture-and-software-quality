@@ -3,29 +3,30 @@ package be.ecam.basics.exercises;
 import java.util.Objects;
 
 public class Account {
-    private double balance;
+    private long balance; // balance en centimes
 
-    public Account() {
-        this(0.0);
-    }
+    public Account() { this(0.0); }
 
     public Account(double initial) {
-        this.balance = initial;
+        if (initial < 0.0) throw new IllegalArgumentException("initial");
+        this.balance = Math.round(initial * 100.0);
     }
 
     public double getBalance() {
-        return balance;
+        return balance / 100.0;
     }
 
     public void deposit(double amount) {
-        if (amount < 0) throw new IllegalArgumentException("amount");
-        balance += amount;
+        if (amount < 0.0) throw new IllegalArgumentException("amount");
+        long delta = Math.round(amount * 100.0);
+        this.balance += delta;
     }
 
     public void withdraw(double amount) {
-        if (amount < 0) throw new IllegalArgumentException("amount");
-        if (amount > balance) throw new IllegalStateException("insufficient");
-        balance -= amount;
+        if (amount < 0.0) throw new IllegalArgumentException("amount");
+        long delta = Math.round(amount * 100.0);
+        if (delta > this.balance) throw new IllegalStateException("insufficient");
+        this.balance -= delta;
     }
 
     public void transferTo(Account other, double amount) {
