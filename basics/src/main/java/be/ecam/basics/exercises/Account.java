@@ -4,6 +4,7 @@ import java.util.Objects;
 
 public class Account {
     private long balance; // balance en centimes
+    // on change le type de balance de double a long pour eviter les erreurs d'arrondis
 
     public Account() { this(0.0); }
 
